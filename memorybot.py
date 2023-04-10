@@ -55,15 +55,15 @@ def new_chat():
     st.session_state.entity_memory.buffer.clear()
 
 # Set up sidebar with various options
-#with st.sidebar.expander("🛠️ ", expanded=False):
-#    # Option to preview memory store
-#    if st.checkbox("Preview memory store"):
-#        with st.expander("Memory-Store", expanded=False):
-#            st.session_state.entity_memory.store
-#    # Option to preview memory buffer
-#    if st.checkbox("Preview memory buffer"):
-#        with st.expander("Bufffer-Store", expanded=False):
-#            st.session_state.entity_memory.buffer
+with st.sidebar.expander("🛠️ ", expanded=False):
+    # Option to preview memory store
+    if st.checkbox("Preview memory store"):
+        with st.expander("Memory-Store", expanded=False):
+            st.session_state.entity_memory.store
+    # Option to preview memory buffer
+    if st.checkbox("Preview memory buffer"):
+        with st.expander("Bufffer-Store", expanded=False):
+            st.session_state.entity_memory.buffer
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
     
