@@ -79,9 +79,9 @@ hide_default_format = """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 
 # Ask the user to enter their OpenAI API key
-#API_O = st.sidebar.text_input("API-KEY", type="password")
-API_0= st.secrets["OPENAI_API_KEY"]
-print(API_O)
+API_O = st.sidebar.text_input("API-KEY", type="password")
+#API_0= st.secrets["OPENAI_API_KEY"]
+#print(API_O)
 
 # Session state storage would be ideal
 if API_O:
