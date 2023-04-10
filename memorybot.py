@@ -7,6 +7,7 @@ The code creates a web application using Streamlit, a Python library for buildin
 
 # Import necessary libraries
 import streamlit as st
+from PIL import Image
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
