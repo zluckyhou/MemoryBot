@@ -13,7 +13,7 @@ from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMP
 from langchain.llms import OpenAI
 
 # Set Streamlit page configuration
-st.set_page_config(page_title='🧠MemoryBot🤖', layout='wide')
+st.set_page_config(page_title=' 🤖ChatGPT with Memory🧠', layout='wide')
 # Initialize session states
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
@@ -67,11 +67,20 @@ with st.sidebar.expander("🛠️ ", expanded=False):
     K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
 
 # Set up the Streamlit app layout
-st.title("🤖 Chat Bot with 🧠")
-st.subheader(" Powered by 🦜 LangChain + OpenAI + Streamlit")
+st.title("🤖 ChatGPT with Memory 🧠")
+#st.subheader(" Powered by 🦜 LangChain + OpenAI + Streamlit")
+
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
 
 # Ask the user to enter their OpenAI API key
-API_O = st.sidebar.text_input("API-KEY", type="password")
+#API_O = st.sidebar.text_input("API-KEY", type="password")
+API_0= st.secrets["OPENAI_API_KEY"]
 
 # Session state storage would be ideal
 if API_O:
