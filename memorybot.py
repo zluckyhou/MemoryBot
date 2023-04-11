@@ -26,6 +26,12 @@ if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = []
 if "just_sent" not in st.session_state:
     st.session_state["just_sent"] = False
+if "temp" not in st.session_state:
+    st.session_state["temp"] = ""
+
+def clear_text():
+    st.session_state["temp"] = st.session_state["input"]
+    st.session_state["input"] = ""
 
 
 # Define function to get user input
@@ -38,10 +44,9 @@ def get_text():
     """
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
                             placeholder="Your AI assistant here! Ask me anything ...", 
+                            on_change=clear_text,    
                             label_visibility='hidden')
-    if st.session_state.just_sent:
-        st.session_state.input = ""
-        st.session_state.just_sent = False
+    st.session_state["temp"]
     return input_text
 
 
