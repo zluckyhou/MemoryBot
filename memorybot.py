@@ -25,6 +25,20 @@ if "input" not in st.session_state:
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = []
 
+# Define function to get user input
+def get_text():
+    """
+    Get the user input text.
+
+    Returns:
+        (str): The text entered by the user
+    """
+    input_text = st.text_input("You: ", st.session_state["input"], key="input",
+                            placeholder="Your AI assistant here! Ask me anything ...", 
+                            label_visibility='hidden')
+    return input_text
+
+
     # Define function to start a new chat
 def new_chat():
     """
@@ -40,28 +54,6 @@ def new_chat():
     st.session_state["input"] = ""
     st.session_state.entity_memory.store = {}
     st.session_state.entity_memory.buffer.clear()
-    st.session_state.just_sent = False
-
-# Define function to get user input
-def get_text():
-    """
-    Get the user input text.
-    Returns:
-        (str): The text entered by the user
-    """
-    input_text = st.text_input("You: ", st.session_state["input"], key="input",
-                            placeholder="Your AI assistant here! Ask me anything ...", 
-                            label_visibility='hidden', on_change=True)
-
-    if st.session_state.just_sent:
-        st.session_state.just_sent = False
-        st.session_state["input"] = ""
-
-    if input_text and input_text[-1] == '\n':
-        st.session_state.just_sent = True
-
-    return input_text
-
 
 # Set up sidebar with various options
 #with st.sidebar.expander("🛠️ ", expanded=False):
