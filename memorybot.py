@@ -36,6 +36,7 @@ def get_text():
     Returns:
         (str): The text entered by the user
     """
+    """
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
                             placeholder="Your AI assistant here! Ask me anything ...", 
                             label_visibility='hidden')
@@ -43,6 +44,19 @@ def get_text():
         st.session_state.input = ""
         st.session_state.just_sent = False
     return input_text
+    """
+    input_text = st.text_input("You: ", st.session_state["input"], key="input",
+                            placeholder="Your AI assistant here! Ask me anything ...", 
+                            on_change=True, value="", 
+                            help="Hit enter to submit your message, the input field will be cleared.")
+    if st.session_state.input != input_text:
+        st.session_state.input = input_text
+        st.session_state.just_sent = True
+    else:
+        st.session_state.just_sent = False
+    if st.session_state.just_sent:
+        return input_text
+    return ""
 
 
     # Define function to start a new chat
