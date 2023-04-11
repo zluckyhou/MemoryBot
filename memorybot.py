@@ -14,7 +14,8 @@ from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMP
 from langchain.llms import OpenAI
 
 # Set Streamlit page configuration
-st.set_page_config(page_title=' 🤖ChatGPT with Memory🧠', layout='wide')
+im = Image.open('sricon.png')
+st.set_page_config(page_title=' 🤖ChatGPT with Memory🧠', layout='wide', page_icon = im)
 # Initialize session states
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
