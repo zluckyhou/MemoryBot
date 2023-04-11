@@ -29,14 +29,19 @@ if "stored_session" not in st.session_state:
 def get_text():
     """
     Get the user input text.
-
     Returns:
         (str): The text entered by the user
     """
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
-                            placeholder="Your AI assistant here! Ask me anything ...", 
-                            label_visibility='hidden')
+                               placeholder="Your AI assistant here! Ask me anything ...", 
+                               label_visibility='hidden', on_submit=clear_input)
     return input_text
+
+def clear_input():
+    """
+    Clear the input field after the user hits the return key.
+    """
+    st.session_state["input"] = ""
 
 # Define function to start a new chat
 def new_chat():
