@@ -51,8 +51,6 @@ def new_chat():
     st.session_state["generated"] = []
     st.session_state["past"] = []
     st.session_state["input"] = ""
-    if "entity_memory" not in st.session_state:
-        st.session_state.entity_memory = MemoryStore()
     st.session_state.entity_memory.store = {}
     st.session_state.entity_memory.buffer.clear()
 
@@ -125,7 +123,7 @@ else:
 
 
 # Add a button to start a new chat
-st.sidebar.button("New Chat", on_click = new_chat, type='primary')
+#st.sidebar.button("New Chat", on_click = new_chat, type='primary')
 
 # Get the user input
 user_input = get_text()
