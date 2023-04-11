@@ -25,6 +25,23 @@ if "input" not in st.session_state:
 if "stored_session" not in st.session_state:
     st.session_state["stored_session"] = []
 
+    # Define function to start a new chat
+def new_chat():
+    """
+    Clears session state and starts a new chat.
+    """
+    save = []
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        save.append("User:" + st.session_state["past"][i])
+        save.append("Bot:" + st.session_state["generated"][i])        
+    st.session_state["stored_session"].append(save)
+    st.session_state["generated"] = []
+    st.session_state["past"] = []
+    st.session_state["input"] = ""
+    st.session_state.entity_memory.store = {}
+    st.session_state.entity_memory.buffer.clear()
+    st.session_state.just_sent = False
+
 # Define function to get user input
 def get_text():
     """
@@ -45,22 +62,6 @@ def get_text():
 
     return input_text
 
-# Define function to start a new chat
-def new_chat():
-    """
-    Clears session state and starts a new chat.
-    """
-    save = []
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        save.append("User:" + st.session_state["past"][i])
-        save.append("Bot:" + st.session_state["generated"][i])        
-    st.session_state["stored_session"].append(save)
-    st.session_state["generated"] = []
-    st.session_state["past"] = []
-    st.session_state["input"] = ""
-    st.session_state.entity_memory.store = {}
-    st.session_state.entity_memory.buffer.clear()
-    st.session_state.just_sent = False
 
 # Set up sidebar with various options
 #with st.sidebar.expander("🛠️ ", expanded=False):
