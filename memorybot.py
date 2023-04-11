@@ -46,7 +46,7 @@ def get_text():
                             placeholder="Your AI assistant here! Ask me anything ...", 
                             on_change=clear_text,    
                             label_visibility='hidden')
-#    st.session_state["temp"]
+    input_text = st.session_state["temp"]
     return input_text
 
 
