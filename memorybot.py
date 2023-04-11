@@ -33,15 +33,17 @@ def get_text():
         (str): The text entered by the user
     """
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
-                               placeholder="Your AI assistant here! Ask me anything ...", 
-                               label_visibility='hidden', on_submit=clear_input)
-    return input_text
+                            placeholder="Your AI assistant here! Ask me anything ...", 
+                            label_visibility='hidden', on_change=True)
 
-def clear_input():
-    """
-    Clear the input field after the user hits the return key.
-    """
-    st.session_state["input"] = ""
+    if st.session_state.just_sent:
+        st.session_state.just_sent = False
+        st.session_state["input"] = ""
+
+    if input_text and input_text[-1] == '\n':
+        st.session_state.just_sent = True
+
+    return input_text
 
 # Define function to start a new chat
 def new_chat():
