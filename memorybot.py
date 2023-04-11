@@ -39,14 +39,10 @@ def get_text():
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
                             placeholder="Your AI assistant here! Ask me anything ...", 
                             label_visibility='hidden')
-    if st.session_state.input != input_text:
-        st.session_state.input = input_text
-        st.session_state.just_sent = True
-    else:
-        st.session_state.just_sent = False
     if st.session_state.just_sent:
-        return input_text
-    return ""
+        st.session_state.input = ""
+        st.session_state.just_sent = False
+    return input_text
 
 
     # Define function to start a new chat
