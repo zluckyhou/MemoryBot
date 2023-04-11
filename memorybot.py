@@ -60,6 +60,7 @@ def new_chat():
     st.session_state["input"] = ""
     st.session_state.entity_memory.store = {}
     st.session_state.entity_memory.buffer.clear()
+    st.session_state.just_sent = False
 
 # Set up sidebar with various options
 #with st.sidebar.expander("🛠️ ", expanded=False):
