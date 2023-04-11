@@ -47,8 +47,7 @@ def get_text():
     """
     input_text = st.text_input("You: ", st.session_state["input"], key="input",
                             placeholder="Your AI assistant here! Ask me anything ...", 
-                            on_change=True, value="", 
-                            help="Hit enter to submit your message, the input field will be cleared.")
+                            label_visibility='hidden')
     if st.session_state.input != input_text:
         st.session_state.input = input_text
         st.session_state.just_sent = True
