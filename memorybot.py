@@ -177,8 +177,8 @@ image1 = Image.open("wechatqrcode.jpg")
 image2 = Image.open("paypalqrcode.png")
 
 # Display the image with text on top
-st.write("Each conversation session costs about $1 for OpenAI API call. Please consider pay to keep this service alive! Thank you!")
-st.write("每次使用调用OpenAI API的费用约为¥7人民币，请帮助支付以便我能够一直提供这个AI小程序，谢谢您！")
+st.write("I have to pay OpenAI API for each of your usage. Please consider donate $5 to keep this service alive! Thank you!")
+st.write("您的每次使用我都需要支付调用OpenAI API的费用，请考虑扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
 #st.image(img, caption=None, width=200)
 
 # Divide the app page into two columns
