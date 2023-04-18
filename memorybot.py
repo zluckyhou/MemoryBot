@@ -93,6 +93,15 @@ with st.sidebar:
     st.markdown(
        "This tool is a work in progress. "
             )
+    st.markdown("---")
+    st.markdown("# 简介")
+    st.markdown(
+       "ChatGPTm就是增加了记忆的ChatGPT"
+       "你可以在右边的对话框问任何问题"
+            )
+    st.markdown(
+       "希望给国内没发用ChatGPT的朋友带来方便"
+            )
 
     
 # Set up the Streamlit app layout
