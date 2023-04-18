@@ -169,7 +169,7 @@ with st.expander("Conversation", expanded=True):
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
     if download_str:
-        st.download_button('Download',download_str)
+        st.download_button('Download 下载',download_str)
 
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
