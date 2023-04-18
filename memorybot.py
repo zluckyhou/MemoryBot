@@ -100,7 +100,7 @@ with st.sidebar:
        "你可以在右边的对话框问任何问题。"
             )
     st.markdown(
-       "希望给国内没发用ChatGPT的朋友带来方便！"
+       "希望给国内没法注册使用ChatGPT的朋友带来方便！"
             )
 
     
