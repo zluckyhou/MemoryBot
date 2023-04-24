@@ -43,7 +43,7 @@ def get_text():
     Returns:
         (str): The text entered by the user
     """
-    input_text = st.text_area("You: ", st.session_state["input"], key="input", height=10,
+    input_text = st.text_input("You: ", st.session_state["input"], key="input", 
                             placeholder="Your AI assistant here! Ask me anything ...请在这里打字问问题吧", 
                             on_change=clear_text,    
                             label_visibility='hidden')
