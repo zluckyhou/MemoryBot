@@ -187,7 +187,7 @@ image2 = Image.open("paypalqrcode.png")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("您的每次使用我都需要支付调用OpenAI API的费用，请考虑扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
+st.write("此应用让国内的人也可以体验使用ChatGPT。只需在上面的方框内打字提问，回车即可。您的每次使用我都需要支付调用OpenAI API的费用，使用后觉得不错请考虑扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
 #st.image(img, caption=None, width=200)
 
 # Divide the app page into two columns
