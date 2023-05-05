@@ -147,6 +147,8 @@ else:
 # Add a button to start a new chat
 #st.sidebar.button("New Chat", on_click = new_chat, type='primary')
 
+# Get the user input
+user_input = get_text()
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
@@ -169,9 +171,6 @@ with st.expander("Conversation", expanded=True):
     if download_str:
         st.download_button('Download 下载',download_str)
 
-# Get the user input
-user_input = get_text()
-        
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
         with st.sidebar.expander(label= f"Conversation-Session:{i}"):
