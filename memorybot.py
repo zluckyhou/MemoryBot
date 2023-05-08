@@ -81,7 +81,7 @@ def new_chat():
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
     
 MODEL = "gpt-3.5-turbo"
-K = 100
+K = 20
 
 with st.sidebar:
     st.markdown("---")
