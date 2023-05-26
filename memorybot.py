@@ -159,7 +159,9 @@ user_input = get_text()
 if user_input:
     output = Conversation.run(input=user_input)  
     st.session_state.past.append(user_input)  
+    word_count += count_words(user_input)
     st.session_state.generated.append(output)  
+    word_count += count_words(output)
 
 # Allow to download as well
 download_str = []
@@ -173,7 +175,6 @@ with st.expander("Conversation", expanded=True):
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
-    word_count = word_count*2 + count_words(download_str)
     
     if download_str:
         st.download_button('Download 下载',download_str)
