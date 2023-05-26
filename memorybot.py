@@ -79,7 +79,11 @@ def new_chat():
 #            st.session_state.entity_memory.buffer
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
-    
+
+def count_words(string):
+    words = string.split()
+    return len(words)
+
 MODEL = "gpt-3.5-turbo"
 K = 10
 
@@ -165,7 +169,8 @@ with st.expander("Conversation", expanded=True):
         st.success(st.session_state["generated"][i], icon="🤖")
         download_str.append(st.session_state["past"][i])
         download_str.append(st.session_state["generated"][i])
-    
+        download_str.append(count_words(download_str)
+                            
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
     if download_str:
