@@ -13,15 +13,15 @@ from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
 
-"""
-@st.cache(allow_output_mutation=True)
-def get_word_count():
-    return 0
 
-def count_words(string):
-    words = string.split()
-    return len(words)
-"""
+#@st.cache(allow_output_mutation=True)
+#def get_word_count():
+#    return 0
+
+#def count_words(string):
+#    words = string.split()
+#    return len(words)
+
 
 # Set Streamlit page configuration
 im = Image.open('sricon.png')
