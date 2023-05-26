@@ -80,6 +80,10 @@ def new_chat():
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
 
+@st.cache(allow_output_mutation=True)
+def get_word_count():
+    return 0
+
 def count_words(string):
     words = string.split()
     return len(words)
@@ -152,6 +156,7 @@ else:
 # Add a button to start a new chat
 #st.sidebar.button("New Chat", on_click = new_chat, type='primary')
 
+word_count = get_word_count()
 # Get the user input
 user_input = get_text()
 
@@ -159,9 +164,7 @@ user_input = get_text()
 if user_input:
     output = Conversation.run(input=user_input)  
     st.session_state.past.append(user_input)  
-    word_count += count_words(user_input)
     st.session_state.generated.append(output)  
-    word_count += count_words(output)
 
 # Allow to download as well
 download_str = []
@@ -175,6 +178,7 @@ with st.expander("Conversation", expanded=True):
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
+    word_count += count_words(download_str)
     
     if download_str:
         st.download_button('Download 下载',download_str)
