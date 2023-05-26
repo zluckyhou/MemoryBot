@@ -13,6 +13,14 @@ from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
 
+@st.cache(allow_output_mutation=True)
+def get_word_count():
+    return 0
+
+def count_words(string):
+    words = string.split()
+    return len(words)
+
 # Set Streamlit page configuration
 im = Image.open('sricon.png')
 st.set_page_config(page_title=' 🤖ChatGPT with Memory🧠', layout='wide', page_icon = im)
@@ -79,14 +87,6 @@ def new_chat():
 #            st.session_state.entity_memory.buffer
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
-
-@st.cache(allow_output_mutation=True)
-def get_word_count():
-    return 0
-
-def count_words(string):
-    words = string.split()
-    return len(words)
 
 MODEL = "gpt-3.5-turbo"
 K = 10
