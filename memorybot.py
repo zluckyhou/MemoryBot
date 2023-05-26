@@ -169,7 +169,6 @@ with st.expander("Conversation", expanded=True):
         st.success(st.session_state["generated"][i], icon="🤖")
         download_str.append(st.session_state["past"][i])
         download_str.append(st.session_state["generated"][i])
-        download_str.append(count_words(download_str)
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
