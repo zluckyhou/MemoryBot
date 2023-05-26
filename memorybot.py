@@ -193,7 +193,7 @@ image2 = Image.open("paypalqrcode.png")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("我已经为你的使用支付了："，word_count）
+st.write("我已经为你的使用支付了：", word_count)
 st.write("我提供此应用初衷的让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，目前入不敷出，请每次使用扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
 #st.image(img, caption=None, width=200)
 
