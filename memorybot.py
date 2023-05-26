@@ -151,6 +151,7 @@ else:
 # Add a button to start a new chat
 #st.sidebar.button("New Chat", on_click = new_chat, type='primary')
 
+word_count = 0
 # Get the user input
 user_input = get_text()
 
