@@ -13,6 +13,7 @@ from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
 
+"""
 @st.cache(allow_output_mutation=True)
 def get_word_count():
     return 0
@@ -20,6 +21,7 @@ def get_word_count():
 def count_words(string):
     words = string.split()
     return len(words)
+"""
 
 # Set Streamlit page configuration
 im = Image.open('sricon.png')
@@ -178,7 +180,7 @@ with st.expander("Conversation", expanded=True):
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
-    word_count += count_words(download_str)
+#    word_count += count_words(download_str)
     
     if download_str:
         st.download_button('Download 下载',download_str)
@@ -199,8 +201,8 @@ image2 = Image.open("paypalqrcode.png")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("我已经为你的这次使用支付了：", word_count, "人民币")
-st.write("我提供此应用初衷的让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，目前入不敷出，请每次使用扫码微信支付¥10人民币或你的实际费用以便我能够一直提供这个AI小程序，谢谢！")
+#st.write("我已经为你的这次使用支付了：", word_count, "人民币")
+st.write("我提供此应用初衷的让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，目前入不敷出，请扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
 #st.image(img, caption=None, width=200)
 
 # Divide the app page into two columns
