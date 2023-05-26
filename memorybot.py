@@ -173,7 +173,7 @@ with st.expander("Conversation", expanded=True):
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
-    word_count += count_words(download_str)
+    word_count = word_count*2 + count_words(download_str)
     
     if download_str:
         st.download_button('Download 下载',download_str)
