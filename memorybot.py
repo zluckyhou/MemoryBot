@@ -196,7 +196,8 @@ if st.session_state.stored_session:
         
 # Load the images
 image1 = Image.open("wechatqrcode_kyle.jpg")
-image2 = Image.open("paypalqrcode.png")
+image2 = Image.open("zhifubaoqrcode_kyle.jpg")
+image3 = Image.open("paypalqrcode.png")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
@@ -205,13 +206,17 @@ st.write("我提供此应用初衷的让国内的人也可以体验使用增加�
 #st.image(img, caption=None, width=200)
 
 # Divide the app page into two columns
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 # Display the first image in the first column
 with col1:
-    st.image(image1, caption="WeChat Pay", width=200)
+    st.image(image1, caption="微信支付", width=200)
 
 # Display the second image in the second column
 with col2:
-    st.image(image2, caption="PayPal", width=200)
+    st.image(image2, caption="支付宝", width=200)
+
+# Display the third image in the third column
+with col3:
+    st.image(image3, caption="PayPal", width=200)
 
