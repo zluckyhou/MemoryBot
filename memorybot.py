@@ -1,8 +1,6 @@
 """
 This is a Python script that serves as a frontend for a conversational AI model built with the `langchain` and `llms` libraries.
 The code creates a web application using Streamlit, a Python library for building interactive web apps.
-# Author: Avratanu Biswas
-# Date: March 11, 2023
 """
 
 # Import necessary libraries
