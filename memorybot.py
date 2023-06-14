@@ -88,7 +88,7 @@ def new_chat():
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
 
-MODEL = "gpt-3.5-turbo"
+MODEL = "gpt-3.5-turbo-0613"
 K = 10
 
 with st.sidebar:
@@ -200,7 +200,7 @@ image3 = Image.open("paypalqrcode.png")
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
 #st.write("我已经为你的这次使用支付了：", word_count, "人民币")
-st.write("我提供此应用初衷的让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，目前入不敷出，请扫码微信支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
+st.write("我提供此应用初衷的让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，目前入不敷出，请扫码微信或支付宝支付¥10人民币以便我能够一直提供这个AI小程序，谢谢！")
 #st.image(img, caption=None, width=200)
 
 # Divide the app page into two columns
