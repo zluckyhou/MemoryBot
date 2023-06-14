@@ -193,7 +193,7 @@ if st.session_state.stored_session:
         del st.session_state.stored_session
         
 # Load the images
-image1 = Image.open("wechatqrcode_kyle.jpg")
+image1 = Image.open("wechatqrcode_leo.jpg")
 image2 = Image.open("zhifubaoqrcode_kyle.jpg")
 image3 = Image.open("paypalqrcode.png")
 
