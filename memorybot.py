@@ -196,7 +196,7 @@ if st.session_state.stored_session:
 image1 = Image.open("wechatqrcode_leo.jpg")
 image2 = Image.open("zhifubaoqrcode_kyle.jpg")
 image3 = Image.open("paypalqrcode.png")
-image4 = Image.open("drpang_shipinhao.jpg")
+image4 = Image.open("drpang_shipinhao2.jpg")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
