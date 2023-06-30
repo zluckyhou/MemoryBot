@@ -202,7 +202,7 @@ image4 = Image.open("drpang_shipinhao2.jpg")
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
 #st.write("我已经为你的这次使用支付了：", word_count, "人民币")
 st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，请扫码微信或支付宝支付¥30人民币可以使用一天。")
-st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍")
+st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍。")
 st.write("我在我的《史丹福机器人庞博士》微信视频号也有很多关于ChatGPT和怎样使用ChatGPT魔法的视频，还有怎么使用这个小程序的视频，欢迎白嫖。也有系统的收费课程《零基础精通掌握ChatGPT魔法》给愿意知识付费的同学深入学习。 ")
 st.write("所有6节课在我的视频号主页的直播回放里， 每节课99元，第一节课大家可以免费试听。 如果想购买全部6节课，有50%折扣，只要299元。可以在我的视频号主页私信我购买，注明ChatGPT课程。")
 
