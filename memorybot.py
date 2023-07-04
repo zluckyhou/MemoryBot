@@ -171,15 +171,15 @@ user_input = get_text()
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
-    st.session_state.count += 1
-    if st.session_state.count < 4 or st.session_state.paid == True: 
+    st.session_state["count"] += 1
+    if st.session_state["count"] < 3 or st.session_state["paid"] == True:
         output = Conversation.run(input=user_input)  
         st.session_state.past.append(user_input)  
         st.session_state.generated.append(output) 
     else:
         st.session_state.past.append(user_input)  
         if is_four_digit_number(user_input) :
-            st.session_state.paid == True
+            st.session_state["paid"] == True
             st.session_state.generated.append("谢谢支付，你可以继续使用了") 
         else: 
             st.session_state.generated.append("请支付后再继续使用。支付时记下转账单号的最后4位数字，在对话框输入这四位数字") 
