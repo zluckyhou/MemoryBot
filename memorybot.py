@@ -182,7 +182,7 @@ if user_input:
             st.session_state["paid"] = True
             st.session_state.generated.append("谢谢支付，你可以继续使用了") 
         else: 
-            st.session_state.generated.append("请支付后再继续使用。支付时记下转账单号的最后4位数字，在对话框输入这四位数字") 
+            st.session_state.generated.append("请用下面的支付码支付¥20后才可以再继续使用。支付时请记下转账单号的最后4位数字，在对话框输入这四位数字") 
         
 
 # Allow to download as well
