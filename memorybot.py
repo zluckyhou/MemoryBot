@@ -10,6 +10,7 @@ from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
+from langchain.callbacks import get_openai_callback
 import re
 
 def is_four_digit_number(string):
@@ -48,6 +49,8 @@ if "word_count" not in st.session_state:
     st.session_state["word_count"] = 0
 if "paid" not in st.session_state:
     st.session_state["paid"] = False
+if "cost" not in st.session_state:
+    st.session_state["cost"] = 0.0
 
 def clear_text():
     st.session_state["temp"] = st.session_state["input"]
@@ -173,10 +176,12 @@ user_input = get_text()
 if user_input:
     st.session_state["count"] += 1
     if st.session_state["count"] < 4 or st.session_state["paid"] == True:
-        output = Conversation.run(input=user_input)  
-        st.session_state.past.append(user_input)  
-        st.session_state.generated.append(output) 
-        st.session_state["word_count"] = st.session_state["word_count"] * 2 + count_words(user_input) + count_words(output) 
+        with get_openai_callback() as cb:
+            output = Conversation.run(input=user_input)  
+            st.session_state.past.append(user_input)  
+            st.session_state.generated.append(output) 
+            st.session_state["cost"] += cb.total_cost
+#        st.session_state["word_count"] = st.session_state["word_count"] * 2 + count_words(user_input) + count_words(output) 
     else:
         st.session_state.past.append(user_input)  
         if is_four_digit_number(user_input) :
@@ -221,7 +226,7 @@ image4 = Image.open("drpang_shipinhao2.jpg")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("我已经为你的这次使用支付了：", st.session_state["word_count"]*0.01, "人民币")
+st.write("我已经为你的这次使用支付了：", st.session_state["cost"]*7, "人民币")
 st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，请扫码微信或支付宝支付¥20人民币可以使用一天。")
 st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍。")
 st.write("我在我的《史丹福机器人庞博士》微信视频号也有很多关于ChatGPT和怎样使用ChatGPT魔法的视频，还有怎么使用这个小程序的视频，欢迎白嫖。也有系统的收费课程《零基础精通掌握ChatGPT魔法》给愿意知识付费的同学深入学习。 ")
