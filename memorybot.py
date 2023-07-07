@@ -179,13 +179,13 @@ user_input = get_text()
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
     st.session_state["count"] += 1
-    if st.session_state["count"] < 5 or st.session_state["paid"] == True:
+    if st.session_state["count"] < 5 or st.session_state["paid"] == True or st.session_state["balance"] > -0.1:
         with get_openai_callback() as cb:
             output = Conversation.run(input=user_input)  
             st.session_state.past.append(user_input)  
             st.session_state.generated.append(output) 
-            st.session_state["cost"] += cb.total_cost
-            st.session_state["balance"] -= cb.total_cost
+            st.session_state["cost"] += cb.total_cost * 4
+            st.session_state["balance"] -= cb.total_cost * 4
 #        st.session_state["word_count"] = st.session_state["word_count"] * 2 + count_words(user_input) + count_words(output) 
     else:
         st.session_state.past.append(user_input)  
@@ -232,8 +232,9 @@ image4 = Image.open("drpang_shipinhao2.jpg")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("我已经为你的这次使用支付了：", round (st.session_state["cost"]*7*4, 2), "人民币")
-st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，请扫码微信或支付宝支付¥20人民币可以使用一天。")
+st.write("我已经为您的这次使用支付了：", round (st.session_state["cost"]*7, 2), "人民币。")
+st.write("您现在账上的余额是：", round (st.session_state["balance"]*7, 2), "人民币。")
+st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，请扫码微信或支付宝支付¥20人民币来使用。")
 st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍。")
 st.write("我在我的《史丹福机器人庞博士》微信视频号也有很多关于ChatGPT和怎样使用ChatGPT魔法的视频，还有怎么使用这个小程序的视频，欢迎白嫖。也有系统的收费课程《零基础精通掌握ChatGPT魔法》给愿意知识付费的同学深入学习。 ")
 st.write("所有6节课在我的视频号主页的直播回放里， 每节课99元，第一节课大家可以免费试听。 如果想购买全部6节课，有50%折扣，只要299元。可以在我的视频号主页私信我购买，注明ChatGPT课程。")
