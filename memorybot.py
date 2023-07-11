@@ -142,6 +142,15 @@ hide_default_format = """
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 
+# Let user select version
+version = st.selectbox("Choose ChatGPT version 请选择您想使用的ChatGPT版本", ("3.5", "4.0"))
+if version == "3.5":
+    # Use GPT-3.5 model
+    MODEL = "gpt-3.5-turbo"
+else:
+    # USe GPT-4.0 model
+    MODEL = "gpt-4"
+    
 # Ask the user to enter their OpenAI API key
 #API_O = st.sidebar.text_input("API-KEY", type="password")
 API_O = st.secrets["OPENAI_API_KEY"]
