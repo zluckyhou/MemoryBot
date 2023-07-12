@@ -18,15 +18,6 @@ def is_four_digit_number(string):
     return bool(re.match(pattern, string))
 
 
-#@st.cache(allow_output_mutation=True)
-#def get_word_count():
-#    return 0
-
-def count_words(string):
-    words = string.split()
-    return len(words)
-
-
 # Set Streamlit page configuration
 im = Image.open('sricon.png')
 st.set_page_config(page_title=' 🤖ChatGPT with Memory🧠', layout='wide', page_icon = im)
@@ -43,14 +34,6 @@ if "just_sent" not in st.session_state:
     st.session_state["just_sent"] = False
 if "temp" not in st.session_state:
     st.session_state["temp"] = ""
-if "count" not in st.session_state:
-    st.session_state["count"] = 0
-if "word_count" not in st.session_state:
-    st.session_state["word_count"] = 0
-if "paid" not in st.session_state:
-    st.session_state["paid"] = False
-if "cost" not in st.session_state:
-    st.session_state["cost"] = 0.0
 if "balance" not in st.session_state:
     st.session_state["balance"] = 0.0
 if "deposit" not in st.session_state:
@@ -106,7 +89,7 @@ def new_chat():
 #    MODEL = st.selectbox(label='Model', options=['gpt-3.5-turbo','text-davinci-003','text-davinci-002','code-davinci-002'])
 #    K = st.number_input(' (#)Summary of prompts to consider',min_value=3,max_value=1000)
 
-MODEL = "gpt-3.5-turbo-0613"
+MODEL = "gpt-3.5-turbo"
 K = 100
 
 with st.sidebar:
@@ -154,6 +137,7 @@ else:
     
 # Ask the user to enter their OpenAI API key
 #API_O = st.sidebar.text_input("API-KEY", type="password")
+# Read API from Streamlit secrets
 API_O = st.secrets["OPENAI_API_KEY"]
 
 # Session state storage would be ideal
@@ -188,13 +172,11 @@ user_input = get_text()
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
-    st.session_state["count"] += 1
     if st.session_state["balance"] > -0.05:
         with get_openai_callback() as cb:
             output = Conversation.run(input=user_input)  
             st.session_state.past.append(user_input)  
             st.session_state.generated.append(output) 
-            st.session_state["cost"] += cb.total_cost * 4
             st.session_state["balance"] -= cb.total_cost * 4
     else:
         st.session_state.past.append(user_input)  
@@ -217,7 +199,6 @@ with st.expander("Conversation", expanded=True):
                             
     # Can throw error - requires fix
     download_str = '\n'.join(download_str)
-#    word_count += count_words(download_str)
     
     if download_str:
         st.download_button('Download 下载',download_str)
@@ -240,7 +221,6 @@ image4 = Image.open("drpang_shipinhao2.jpg")
 
 # Display the image with text on top
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
-st.write("我已经为您的这次使用支付了：", round (st.session_state["cost"]*7, 2), "人民币。")
 st.write("您现在账上的余额是：", round (st.session_state["balance"]*7, 2), "人民币。")
 st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，包括3.5版，请扫码微信或支付宝支付¥10人民币来使用，我会再送你10元，按流量计费。")
 st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍。")
