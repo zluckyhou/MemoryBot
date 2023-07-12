@@ -172,7 +172,7 @@ user_input = get_text()
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
-    if st.session_state["balance"] > -0.05:
+    if st.session_state["balance"] > -0.03:
         with get_openai_callback() as cb:
             output = Conversation.run(input=user_input)  
             st.session_state.past.append(user_input)  
