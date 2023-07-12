@@ -189,23 +189,20 @@ user_input = get_text()
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input:
     st.session_state["count"] += 1
-    if st.session_state["count"] < 5 or st.session_state["paid"] == True or st.session_state["balance"] > -0.05:
+    if st.session_state["balance"] > -0.05:
         with get_openai_callback() as cb:
             output = Conversation.run(input=user_input)  
             st.session_state.past.append(user_input)  
             st.session_state.generated.append(output) 
             st.session_state["cost"] += cb.total_cost * 4
             st.session_state["balance"] -= cb.total_cost * 4
-#        st.session_state["word_count"] = st.session_state["word_count"] * 2 + count_words(user_input) + count_words(output) 
     else:
         st.session_state.past.append(user_input)  
         if is_four_digit_number(user_input) :
-            st.session_state["paid"] = True
             st.session_state["balance"] += st.session_state["deposit"]
             st.session_state.generated.append("谢谢支付，你可以继续使用了") 
         else: 
             st.session_state.generated.append("请用下面的支付码支付¥10后才可以再继续使用。我会再送你¥10元。支付时请记下转账单号的最后4位数字，在上面对话框输入这四位数字") 
-            st.session_state["paid"] = False
         
 
 # Allow to download as well
