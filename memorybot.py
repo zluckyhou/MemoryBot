@@ -223,10 +223,11 @@ image4 = Image.open("drpang_shipinhao2.jpg")
 st.write("I have to pay OpenAI API for each of your usage. Please consider donating $5 to keep this service alive! Thank you!")
 st.write("您现在账上的余额是：", round (st.session_state["balance"]*7, 2), "人民币。")
 st.write("我是史丹福机器人庞博士，我提供此应用的初衷是让国内的人也可以体验使用增加了记忆的ChatGPT。我在为你的每次使用支付调用OpenAI API的费用，包括3.5版，请扫码微信或支付宝支付¥10人民币来使用，我会再送你10元，按流量计费。")
+st.write("因为没有你的注册信息，你如果关闭浏览器或这个网页，你的余额会归零，所以使用时尽量不要关闭浏览器或这个页面")
 st.write("长期用户可交¥1688年费（和OpenAI付费用户收费一致），填上你的邮箱，我会发给你专属的小程序，记忆力是这个的10倍。")
 st.write("OpenAI对GPT4.0 API的收费是3.5的20倍，请大家体验时注意。")
-st.write("我在我的《史丹福机器人庞博士》微信视频号也有很多关于ChatGPT和怎样使用ChatGPT魔法的视频，还有怎么使用这个小程序的视频，欢迎白嫖。也有系统的收费课程《零基础精通掌握ChatGPT魔法》给愿意知识付费的同学深入学习。 ")
-st.write("所有6节课在我的视频号主页的直播回放里， 每节课99元，第一节课大家可以免费试听。 如果想购买全部6节课，有50%折扣，只要299元。可以在我的视频号主页私信我购买，注明ChatGPT课程。")
+st.write("我在我的《史丹福机器人庞博士》微信视频号也有很多关于ChatGPT和怎样使用ChatGPT魔法的视频，还有怎么使用这个小程序的视频，欢迎白嫖。也有系统的课程《零基础精通掌握ChatGPT魔法6讲》和《ChatGPT和LLM应用编程7讲》给愿意知识付费的同学深入学习。 ")
+st.write("所有已直播的课程在我的视频号主页的直播回放里， 每节课99元，第一节课大家可以免费试听。 如果想购买整套课程，有50%折扣，每个只要299元。可以在我的视频号主页私信我购买，注明ChatGPT魔法课或编程课。两门课都上再优惠100元，只要499元。")
 
 #st.image(img, caption=None, width=200)
 
