@@ -130,10 +130,10 @@ st.write("GPT4.5 Turbo 上线了！无需注册就可以体验只有OpenAI付费
 version = st.selectbox("Choose ChatGPT version 请选择您想使用的ChatGPT版本", ("3.5", "4.5"))
 if version == "3.5":
     # Use GPT-3.5 model
-    MODEL = "gpt-3.5-turbo-1106"
+    MODEL = "gpt-3.5-turbo"
 else:
     # USe GPT-4.5 model
-    MODEL = "gpt-4-1106-preview"
+    MODEL = "gpt-4"
     
 # Ask the user to enter their OpenAI API key
 #API_O = st.sidebar.text_input("API-KEY", type="password")
