@@ -126,6 +126,7 @@ hide_default_format = """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 
 # Let user select version
+st.write("升级调试中，暂不可用")
 st.write("GPT4.5 Turbo 上线了！无需注册就可以体验只有OpenAI付费用户才可以体验的GPT4.5了！")
 version = st.selectbox("Choose ChatGPT version 请选择您想使用的ChatGPT版本", ("3.5", "4.5"))
 if version == "3.5":
